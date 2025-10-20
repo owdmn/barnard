@@ -31,6 +31,10 @@ func (b *Barnard) start() {
 		os.Exit(1)
 	} else {
 		b.Stream = stream
+		b.Stream.StartSource()
+		b.UiStatus.Fg = uiterm.ColorWhite | uiterm.AttrBold
+		b.UiStatus.Bg = uiterm.ColorRed
+		b.UiStatus.Text = "  Tx  "
 	}
 }
 
@@ -38,7 +42,6 @@ func (b *Barnard) OnConnect(e *gumble.ConnectEvent) {
 	b.Client = e.Client
 
 	b.Ui.SetActive(uiViewInput)
-	b.OnVoiceToggle(b.Ui, uiterm.KeyF1)
 	b.UiTree.Rebuild()
 	b.Ui.Refresh()
 	b.UpdateInputStatus(fmt.Sprintf("To: %s", e.Client.Self.Channel.Name))
