@@ -8,6 +8,7 @@ import (
 	"layeh.com/gumble/gumble"
 	"layeh.com/gumble/gumbleopenal"
 	"layeh.com/gumble/gumbleutil"
+	"layeh.com/barnard/uiterm"
 )
 
 func (b *Barnard) start() {
@@ -37,9 +38,9 @@ func (b *Barnard) OnConnect(e *gumble.ConnectEvent) {
 	b.Client = e.Client
 
 	b.Ui.SetActive(uiViewInput)
+	b.OnVoiceToggle(b.Ui, uiterm.KeyF1)
 	b.UiTree.Rebuild()
 	b.Ui.Refresh()
-
 	b.UpdateInputStatus(fmt.Sprintf("To: %s", e.Client.Self.Channel.Name))
 	b.AddOutputLine(fmt.Sprintf("Connected to %s", b.Client.Conn.RemoteAddr()))
 	if e.WelcomeMessage != nil {
