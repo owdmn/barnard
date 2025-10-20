@@ -1,6 +1,6 @@
 module github.com/owdmn/barnard
 
-go 1.25.1
+go 1.23
 
 require (
 	github.com/kennygrant/sanitize v1.2.4
