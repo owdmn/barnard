@@ -1,7 +1,5 @@
 module github.com/owdmn/barnard
 
-go 1.23
-
 require (
 	github.com/kennygrant/sanitize v1.2.4
 	github.com/nsf/termbox-go v1.1.1
