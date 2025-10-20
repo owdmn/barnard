@@ -53,7 +53,6 @@ func (b *Barnard) OnVoiceToggle(ui *uiterm.Ui, key uiterm.Key) {
 		b.UiStatus.Fg = uiterm.ColorWhite | uiterm.AttrBold
 		b.UiStatus.Bg = uiterm.ColorRed
 		b.UiStatus.Text = "  Tx  "
-		b.Stream.StartSource()
 	}
 	ui.Refresh()
 }
