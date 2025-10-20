@@ -8,7 +8,6 @@ import (
 	"layeh.com/gumble/gumble"
 	"layeh.com/gumble/gumbleopenal"
 	"layeh.com/gumble/gumbleutil"
-	"layeh.com/barnard/uiterm"
 )
 
 func (b *Barnard) start() {
