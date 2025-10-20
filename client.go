@@ -31,10 +31,6 @@ func (b *Barnard) start() {
 		os.Exit(1)
 	} else {
 		b.Stream = stream
-		b.Stream.StartSource()
-		b.UiStatus.Fg = uiterm.ColorWhite | uiterm.AttrBold
-		b.UiStatus.Bg = uiterm.ColorRed
-		b.UiStatus.Text = "  Tx  "
 	}
 }
 
@@ -49,6 +45,7 @@ func (b *Barnard) OnConnect(e *gumble.ConnectEvent) {
 	if e.WelcomeMessage != nil {
 		b.AddOutputLine(fmt.Sprintf("Welcome message: %s", esc(*e.WelcomeMessage)))
 	}
+	b.Stream.StartSource()
 }
 
 func (b *Barnard) OnDisconnect(e *gumble.DisconnectEvent) {
